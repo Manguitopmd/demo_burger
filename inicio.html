@@ -1,0 +1,87 @@
+<section class="animate-fadeIn">
+    <!-- Swiper Slider -->
+    <div class="swiper mb-6 rounded-lg overflow-hidden">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide relative">
+                <img src="assets/img/banner/1.jpg?text=Promo+1" alt="Promo 1" class="w-full h-full object-cover">
+                <div class="overlay flex items-center justify-center bg-black/60">
+                    <h2 class="text-xl font-bold text-mustard">¡Bienvenidos a {{businessName}}!</h2>
+                </div>
+            </div>
+            <div class="swiper-slide relative">
+                <img src="assets/img/banner/2.jpg?text=Promo+2" alt="Promo 2" class="w-full h-full object-cover">
+                <div class="overlay flex items-center justify-center bg-black/60">
+                    <h2 class="text-xl font-bold text-mustard">2x1 en Hamburguesas</h2>
+                </div>
+            </div>
+            <div class="swiper-slide relative">
+                <img src="assets/img/banner/3.jpg?text=Promo+3" alt="Promo 3" class="w-full h-full object-cover">
+                <div class="overlay flex items-center justify-center bg-black/60">
+                    <h2 class="text-xl font-bold text-mustard">Combo Familiar {{currency}}59.90</h2>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="card bg-darkCard text-center mb-6 p-6">
+        <h1 class="text-3xl font-extrabold text-mustard mb-3">{{businessName}}</h1>
+        <p class="text-white/80 mb-4 text-sm">{{slogan}}</p>
+        <button data-section="carta" class="btn bg-mustard text-black font-semibold w-full py-3 rounded-full hover:bg-mustardHover transition-colors">Explorar Carta</button>
+    </div>
+
+    <!-- Social Media Links -->
+    <div id="social-links" class="flex justify-center gap-4 mb-6"></div>
+
+    <!-- Quick Info -->
+    <div class="card bg-darkCard p-6 mb-6">
+        <h2 class="text-lg font-bold text-mustard mb-4 flex items-center">
+            <i class="fas fa-info-circle mr-2"></i> Info
+        </h2>
+        <div class="space-y-4">
+            <div class="flex items-start">
+                <i class="fas fa-clock text-mustard mr-3 mt-1"></i>
+                <p class="text-white/80 text-sm hours">{{hoursDisplay}}</p>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-map-marker-alt text-mustard mr-3 mt-1"></i>
+                <p class="text-white/80 text-sm">{{address}}</p>
+            </div>
+            <div class="flex flex-col gap-3 mt-4">
+                <a href="tel:{{whatsappNumber}}" class="btn bg-green-500 text-white font-semibold py-3 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                    <i class="fas fa-phone-alt mr-2"></i> Llamar
+                </a>
+                <a href="https://wa.me/{{whatsappNumber}}" class="btn bg-mustard text-black font-semibold py-3 rounded-full flex items-center justify-center hover:bg-mustardHover transition-colors">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+                <button data-section="reservas" id="open-reserve" class="btn bg-button text-black w-full py-2 rounded-full flex items-center justify-center hover:bg-button-hover transition-colors">
+                    <i class="fas fa-calendar-check mr-2"></i> Reservas
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map -->
+    <div class="card bg-darkCard p-6">
+        <h2 class="text-lg font-bold text-mustard mb-4 flex items-center">
+            <i class="fas fa-map-marked-alt mr-2"></i> Nuestra Ubicación
+        </h2>
+        <div id="map" class="rounded-lg mb-4"></div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination={{map.lat}},{{map.lng}}" target="_blank" class="btn bg-mustard text-black font-semibold w-full py-3 rounded-full flex items-center justify-center hover:bg-mustardHover transition-colors">
+            <i class="fas fa-route mr-2"></i> Cómo Llegar
+        </a>
+    </div>
+
+    <!-- Reservation Confirmation Modal -->
+    <div id="reserve-confirm-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden">
+        <div class="card max-w-sm w-full mx-4 text-center">
+            <h3 class="text-2xl font-bold text-mustard mb-4">Reservación</h3>
+            <p id="reserve-confirm-message" class="text-secondary mb-4">Las reservas deben realizarse con {{minBookingHours}} horas de antelación. ¿Deseas continuar?</p>
+            <div class="flex gap-3">
+                <button id="reserve-cancel" class="btn bg-gray-500 text-white w-full py-2 rounded-full hover:bg-gray-600 transition-colors">Cancelar</button>
+                <button id="reserve-continue" class="btn bg-mustard text-black w-full py-2 rounded-full hover:bg-mustardHover transition-colors">Continuar</button>
+            </div>
+        </div>
+    </div>
+</section>

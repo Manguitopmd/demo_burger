@@ -1,0 +1,46 @@
+/* Color Variables */
+:root {
+    /* Primary Colors */
+    --nav-background: #2a0808; /* Dark burgundy */
+    --mustard: #ffab00; /* Vibrant mustard yellow */
+    --beige: #1a1a1a; /* Dark charcoal for background */
+    --white: #ffffff;
+    --black: #000000;
+    --accent: #dc2626; /* Vibrant red for accents */
+    --green: #22c55e; /* Vibrant green for call button */
+
+    /* Secondary Colors */
+    --mustard-dark: #e69500; /* Darker mustard for hover */
+    --accent-dark: #b91c1c; /* Darker red for hover */
+    --green-dark: #16a34a; /* Darker green for hover */
+    --dark-card: #262626; /* Darker card background */
+
+    /* Additional Colors for Customization */
+    --blue: #3b82f6; /* Vibrant blue */
+    --blue-light: #60a5fa; /* Lighter blue */
+    --blue-dark: #1d4ed8; /* Darker blue */
+    --purple: #8b5cf6; /* Vibrant purple */
+    --purple-light: #a78bfa; /* Lighter purple */
+    --purple-dark: #6d28d9; /* Darker purple */
+    --orange: #f97316; /* Vibrant orange */
+    --orange-light: #fb923c; /* Lighter orange */
+    --orange-dark: #c2410c; /* Darker orange */
+    --pink: #ec4899; /* Vibrant pink */
+    --pink-light: #f472b6; /* Lighter pink */
+    --pink-dark: #be185d; /* Darker pink */
+    --gray: #6b7280; /* Neutral gray */
+    --gray-light: #9ca3af; /* Lighter gray */
+    --gray-dark: #4b5563; /* Darker gray */
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+
+    /* Button Colors */
+    --button: #ffab00; /* Same as mustard */
+    --button-hover: #e69500; /* Same as mustard-dark */
+
+    /* Other Properties */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --border: 1px solid #3f3f3f;
+}

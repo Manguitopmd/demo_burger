@@ -1,0 +1,172 @@
+<section id="carrito" class="animate-fadeIn">
+    <!-- Cart Items -->
+    <div id="cart-content">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-bold text-mustard">Tu Carrito</h2>
+            <button id="toggle-cart-items" class="text-mustard text-sm flex items-center">
+                <i class="fas fa-chevron-up mr-1"></i>
+                <span>Colapsar</span>
+            </button>
+        </div>
+        <div id="cart-items" class="space-y-4 mb-6"></div>
+        <div class="card bg-darkCard p-4 flex justify-between items-center mb-6">
+            <span class="text-lg font-bold text-white">Total:</span>
+            <span id="cart-total" class="text-lg font-bold text-mustard">S/0.00</span>
+        </div>
+
+        <!-- Proceed to Customer Info Button -->
+        <button id="proceed-to-info" class="btn bg-button text-black w-full py-3 rounded-full flex items-center justify-center hover:bg-button-hover transition-colors">
+            <i class="fas fa-check-circle mr-2"></i> Continuar
+        </button>
+
+        <!-- Customer Info Steps (Hidden Initially) -->
+        <div id="customer-info" class="hidden mt-6">
+            <!-- Progress Indicator -->
+            <div class="flex justify-between mb-6">
+                <div class="step-indicator active" data-step="1">
+                    <span class="step-number">1</span>
+                    <p class="text-sm text-secondary">Datos Personales</p>
+                </div>
+                <div class="step-indicator" data-step="2">
+                    <span class="step-number">2</span>
+                    <p class="text-sm text-secondary">Entrega</p>
+                </div>
+                <div class="step-indicator" data-step="3">
+                    <span class="step-number">3</span>
+                    <p class="text-sm text-secondary">Pago</p>
+                </div>
+            </div>
+
+            <!-- Step 1: Personal Info -->
+            <div id="step-1" class="step card bg-darkCard p-4 mb-6">
+                <h3 class="text-lg font-bold text-mustard mb-4">Datos Personales</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-secondary text-sm mb-1">Nombre</label>
+                        <input id="customer-name" type="text" class="w-full bg-gray-dark text-white border rounded-lg p-2" placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div>
+                        <label class="block text-secondary text-sm mb-1">Teléfono</label>
+                        <input id="customer-phone" type="tel" class="w-full bg-gray-dark text-white border rounded-lg p-2" placeholder="Ej. 987654321">
+                    </div>
+                </div>
+                <div class="flex justify-end mt-6">
+                    <button id="next-step-1" class="btn bg-button text-black py-2 px-6 rounded-full hover:bg-button-hover transition-colors">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Delivery -->
+            <div id="step-2" class="step card bg-darkCard p-4 mb-6 hidden">
+                <h3 class="text-lg font-bold text-mustard mb-4">Método de Entrega</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-secondary text-sm mb-1">Método de Entrega</label>
+                        <div class="flex gap-3">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="delivery-method" value="recojo" class="delivery-radio" checked>
+                                <span class="text-secondary text-sm">Recojo en local</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="delivery-method" value="delivery" class="delivery-radio">
+                                <span class="text-secondary text-sm">Delivery</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="address-container" class="hidden">
+                        <label class="block text-secondary text-sm mb-1">Dirección</label>
+                        <textarea id="customer-address" class="w-full bg-gray-dark text-white border rounded-lg p-2" placeholder="Ej. Av. Principal 123, Lima"></textarea>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-6">
+                    <button id="prev-step-2" class="btn bg-darkCard border border-mustard text-mustard py-2 px-6 rounded-full hover:bg-button hover:text-black transition-colors">Anterior</button>
+                    <button id="next-step-2" class="btn bg-button text-black py-2 px-6 rounded-full hover:bg-button-hover transition-colors">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Payment -->
+            <div id="step-3" class="step card bg-darkCard p-4 mb-6 hidden">
+                <h3 class="text-lg font-bold text-mustard mb-4">Método de Pago</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-secondary text-sm mb-1">Método de Pago</label>
+                        <div class="flex gap-3">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="payment-method" value="plin" class="payment-radio">
+                                <span class="text-secondary text-sm">Plin</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="payment-method" value="yape" class="payment-radio">
+                                <span class="text-secondary text-sm">Yape</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="payment-method" value="efectivo" class="payment-radio">
+                                <span class="text-secondary text-sm">Efectivo</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="cash-amount-container" class="hidden">
+                        <label class="block text-secondary text-sm mb-1">Monto a pagar (en efectivo)</label>
+                        <input id="cash-amount" type="number" step="0.01" min="0" class="w-full bg-gray-dark text-white border rounded-lg p-2" placeholder="Ej. 50.00">
+                    </div>
+                </div>
+                <div class="flex justify-between mt-6">
+                    <button id="prev-step-3" class="btn bg-darkCard border border-mustard text-mustard py-2 px-6 rounded-full hover:bg-button hover:text-black transition-colors">Anterior</button>
+                    <button id="proceed-checkout" class="btn bg-button text-black py-2 px-6 rounded-full hover:bg-button-hover transition-colors">Finalizar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty Cart Message -->
+    <div id="empty-cart" class="hidden text-center">
+        <h2 class="text-2xl font-bold text-mustard mb-4">El carrito está vacío</h2>
+        <p class="text-secondary mb-6">¡Añade tus platos favoritos para empezar!</p>
+        <button id="go-to-menu" class="btn bg-button text-black w-full max-w-xs py-3 rounded-full flex items-center justify-center hover:bg-button-hover transition-colors">
+            <i class="fas fa-utensils mr-2"></i> Ver Carta
+        </button>
+    </div>
+
+    <!-- Order Summary Modal -->
+    <div id="order-summary-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-20">
+        <div class="card bg-darkCard p-4 w-full max-w-md mx-4 rounded-lg max-h-[80vh] overflow-y-auto">
+            <h3 class="text-lg font-bold text-mustard mb-4">Resumen del Pedido</h3>
+            <div id="summary-items" class="space-y-2 mb-4"></div>
+            <p class="text-secondary text-sm mb-4"><strong>Total:</strong> <span id="summary-total"></span></p>
+            <div class="flex gap-3">
+                <button id="summary-cancel" class="btn bg-darkCard border border-mustard text-mustard w-full py-2 rounded-full hover:bg-button hover:text-black transition-colors">Editar</button>
+                <button id="summary-confirm" class="btn bg-button text-black w-full py-2 rounded-full hover:bg-button-hover transition-colors">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verify Data Modal -->
+    <div id="verify-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-20">
+        <div class="card bg-darkCard p-4 w-full max-w-md mx-4 rounded-lg">
+            <h3 class="text-lg font-bold text-mustard mb-4">Confirmar Datos</h3>
+            <p class="text-secondary text-sm mb-1"><strong>Nombre:</strong> <span id="verify-name"></span></p>
+            <p class="text-secondary text-sm mb-1"><strong>Teléfono:</strong> <span id="verify-phone"></span></p>
+            <p class="text-secondary text-sm mb-1"><strong>Entrega:</strong> <span id="verify-delivery"></span></p>
+            <p id="verify-address-container" class="text-secondary text-sm mb-1 hidden"><strong>Dirección:</strong> <span id="verify-address"></span></p>
+            <p class="text-secondary text-sm mb-1"><strong>Pago:</strong> <span id="verify-payment"></span></p>
+            <p id="verify-cash-amount" class="text-secondary text-sm mb-4 hidden"><strong>Vuelto:</strong> <span id="verify-change"></span></p>
+            <p class="text-secondary text-sm mb-4"><strong>Total:</strong> <span id="verify-total"></span></p>
+            <div id="qr-container" class="mb-4 hidden text-center">
+                <img id="qr-image" src="" alt="QR Code" class="mx-auto w-32 h-32">
+                <p class="text-secondary text-sm mt-2">Descarga o escanea el QR para realizar el pago y envía el comprobante.</p>
+            </div>
+            <div class="flex gap-3">
+                <button id="verify-cancel" class="btn bg-darkCard border border-mustard text-mustard w-full py-2 rounded-full hover:bg-button hover:text-black transition-colors">Editar</button>
+                <button id="verify-confirm" class="btn bg-button text-black w-full py-2 rounded-full hover:bg-button-hover transition-colors">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="notification-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-20">
+        <div class="card bg-darkCard p-4 w-full max-w-sm mx-4 rounded-lg">
+            <h3 class="text-lg font-bold text-mustard mb-4">Notificación</h3>
+            <p id="notification-message" class="text-secondary text-sm mb-4"></p>
+            <button id="notification-close" class="btn bg-button text-black w-full py-2 rounded-full hover:bg-button-hover transition-colors">Entendido</button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Burger Bonanza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <div id="content" class="content"></div>
+        <nav class="tab-bar">
+            <button data-section="inicio" class="active">
+                <i class="fas fa-home"></i>
+                Inicio
+            </button>
+            <button data-section="carta">
+                <i class="fas fa-utensils"></i>
+                Carta
+            </button>
+            <button data-section="carrito" class="relative">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="absolute top-[-4px] right-[-4px] bg-accent text-white rounded-full h-1.5 w-1.5 flex items-center justify-center text-[0.4rem] hidden">0</span>
+                Carrito
+            </button>
+        </nav>
+    </div>
+    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

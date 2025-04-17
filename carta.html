@@ -1,0 +1,112 @@
+<section class="animate-fadeIn">
+    <!-- Category Filters -->
+    <div class="category-bar sticky top-0 bg-darkCard z-10 py-3 px-4 shadow mb-4">
+        <div class="flex overflow-x-auto space-x-2 scrollbar-hidden">
+            <button data-category="all" class="btn bg-button text-black px-4 py-2 rounded-full whitespace-nowrap active-category">Todos</button>
+            <button data-category="combos" class="btn bg-darkCard border border-mustard text-mustard px-4 py-2 rounded-full whitespace-nowrap">Combos</button>
+            <button data-category="hamburguesas" class="btn bg-darkCard border border-mustard text-mustard px-4 py-2 rounded-full whitespace-nowrap">Hamburguesas</button>            
+            <button data-category="acompañamientos" class="btn bg-darkCard border border-mustard text-mustard px-4 py-2 rounded-full whitespace-nowrap">Acompañamientos</button>
+            <button data-category="bebidas" class="btn bg-darkCard border border-mustard text-mustard px-4 py-2 rounded-full whitespace-nowrap">Bebidas</button>
+        </div>
+    </div>
+
+    <!-- Menu Items -->
+    <div id="menu-items" class="space-y-4">
+        <!-- Combos First -->
+        <div class="item card bg-darkCard p-4 relative combo-item" data-category="combos">
+            <img src="assets/img/carta/1.jpg?text=Combo+Doble" alt="Combo Doble" class="w-full h-40 object-cover rounded-lg mb-3">
+            <h3 class="text-lg font-bold text-mustard">Combo Doble</h3>
+            <p class="price text-white/80">{{currency}}29.90</p>
+            <p class="text-sm text-secondary">Dos hamburguesas clásicas, papas fritas grandes y bebida 500ml</p>
+            <button class="add-to-cart btn bg-mustard text-black w-full mt-3 py-2 rounded-full flex items-center justify-center hover:bg-mustardHover transition-colors">
+                <i class="fas fa-cart-plus mr-2"></i> Añadir
+            </button>
+            <span class="added-indicator absolute top-2 right-2 bg-green text-white text-xs rounded-full h-6 w-6 flex items-center justify-center hidden">
+                <i class="fas fa-check"></i>
+            </span>
+        </div>
+        <!-- Other Items -->
+        <div class="item card bg-darkCard p-4 relative" data-category="hamburguesas">
+            <img src="assets/img/carta/2.jpg?text=Burger+Clásica" alt="Burger Clásica" class="w-full h-40 object-cover rounded-lg mb-3">
+            <h3 class="text-lg font-bold text-mustard">Burger Clásica</h3>
+            <p class="price text-white/80">{{currency}}15.90</p>
+            <p class="text-sm text-secondary">Hamburguesa con lechuga, tomate y salsa especial</p>
+            <button class="add-to-cart btn bg-mustard text-black w-full mt-3 py-2 rounded-full flex items-center justify-center hover:bg-mustardHover transition-colors">
+                <i class="fas fa-cart-plus mr-2"></i> Añadir
+            </button>
+            <span class="added-indicator absolute top-2 right-2 bg-green text-white text-xs rounded-full h-6 w-6 flex items-center justify-center hidden">
+                <i class="fas fa-check"></i>
+            </span>
+        </div>
+        <div class="item card bg-darkCard p-4 relative" data-category="hamburguesas">
+            <img src="assets/img/carta/3.jpg?text=Burger+BBQ" alt="Burger BBQ" class="w-full h-40 object-cover rounded-lg mb-3">
+            <h3 class="text-lg font-bold text-mustard">Burger BBQ</h3>
+            <p class="price text-white/80">{{currency}}18.90</p>
+            <p class="text-sm text-secondary">Hamburguesa con salsa BBQ, queso cheddar y cebolla crispy</p>
+            <button class="add-to-cart btn bg-mustard text-black w-full mt-3 py-2 rounded-full flex items-center justify-center hover:bg-mustardHover transition-colors">
+                <i class="fas fa-cart-plus mr-2"></i> Añadir
+            </button>
+            <span class="added-indicator absolute top-2 right-2 bg-green text-white text-xs rounded-full h-6 w-6 flex items-center justify-center hidden">
+                <i class="fas fa-check"></i>
+            </span>
+        </div>
+        <div class="item card bg-darkCard p-4 relative" data-category="acompañamientos">
+            <img src="assets/img/carta/4.jpg?text=Papas+Fritas" alt="Papas Fritas" class="w-full h-40 object-cover rounded-lg mb-3">
+            <h3 class="text-lg font-bold text-mustard">Papas Fritas Grandes</h3>
+            <p class="price text-white/80">{{currency}}7.90</p>
+            <p class="text-sm text-secondary">Porción grande de papas fritas crujientes</p>
+            <button class="add-to-cart btn bg-mustard text-black w-full mt-3 py-2 rounded-full flex items-center justify-center hover:bg-mustardHover transition-colors">
+                <i class="fas fa-cart-plus mr-2"></i> Añadir
+            </button>
+            <span class="added-indicator absolute top-2 right-2 bg-green text-white text-xs rounded-full h-6 w-6 flex items-center justify-center hidden">
+                <i class="fas fa-check"></i>
+            </span>
+        </div>
+        <div class="item card bg-darkCard p-4 relative" data-category="bebidas">
+            <img src="assets/img/carta/5.jpg?text=Inca+Kola" alt="Inca Kola" class="w-full h-40 object-cover rounded-lg mb-3">
+            <h3 class="text-lg font-bold text-mustard">Inca Kola 500ml</h3>
+            <p class="price text-white/80">{{currency}}4.50</p>
+            <p class="text-sm text-secondary">Refrescante bebida peruana</p>
+            <button class="add-to-cart btn bg-mustard text-black w-full mt-3 py-2 rounded-full flex items-center justify-center hover:bg-mustardHover transition-colors">
+                <i class="fas fa-cart-plus mr-2"></i> Añadir
+            </button>
+            <span class="added-indicator absolute top-2 right-2 bg-green text-white text-xs rounded-full h-6 w-6 flex items-center justify-center hidden">
+                <i class="fas fa-check"></i>
+            </span>
+        </div>
+    </div>
+
+    <!-- Modal for Item Customization -->
+    <div id="item-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-20">
+        <div class="card bg-darkCard p-6 w-full max-w-md mx-4 rounded-lg">
+            <h3 id="modal-title" class="text-lg font-bold text-mustard mb-4"></h3>
+            <div class="mb-4">
+                <label class="block text-white/80 text-sm mb-1">Cantidad</label>
+                <input type="number" id="modal-quantity" value="1" min="1" class="w-full bg-darkCard text-white">
+            </div>
+            <div class="mb-4" id="modal-sauce-container">
+                <label class="block text-white/80 text-sm mb-2">Cremas</label>
+                <div id="modal-sauces" class="space-y-2"></div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-white/80 text-sm mb-1">Notas</label>
+                <textarea id="modal-notes" class="w-full bg-darkCard text-white" placeholder="Ej. sin cebolla"></textarea>
+            </div>
+            <div class="flex gap-3">
+                <button id="modal-cancel" class="btn bg-darkCard border border-mustard text-mustard w-full py-2 rounded-full hover:bg-mustard hover:text-black transition-colors">Cancelar</button>
+                <button id="modal-confirm" class="btn bg-mustard text-black w-full py-2 rounded-full hover:bg-mustardHover transition-colors">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggestion Toast -->
+    <div id="suggestion-toast" class="fixed bottom-20 left-1/2 transform -translate-x-1/2 bg-darkCard p-4 rounded-lg shadow-lg max-w-sm w-full hidden z-20">
+        <div class="flex justify-between items-center mb-3">
+            <p class="text-white/80 text-sm">¿Qué te gustaría añadir ahora?</p>
+            <button id="toast-close" class="text-mustard text-sm">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="suggestion-buttons" class="flex flex-wrap gap-2 justify-center"></div>
+    </div>
+</section>
