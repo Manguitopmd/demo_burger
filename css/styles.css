@@ -18,6 +18,10 @@ body {
 .bg-accent { background-color: var(--accent); }
 .bg-green { background-color: var(--green); }
 .bg-green:hover { background-color: var(--green-dark); }
+.bg-orange { background-color: var(--orange); }
+.bg-orange:hover { background-color: var(--orange-light); }
+.bg-blue { background-color: var(--blue); }
+.bg-blue:hover { background-color: var(--blue-light); }
 .text-mustard { color: var(--mustard); }
 .text-mustardHover { color: var(--mustard-dark); }
 .text-white { color: var(--white); }

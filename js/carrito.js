@@ -188,8 +188,16 @@ function initCarrito() {
                 showNotification("Por favor, ingresa tu nombre.");
                 return;
             }
+            if (!/^[A-Za-z\s]+$/.test(name)) {
+                showNotification("El nombre solo puede contener letras y espacios.");
+                return;
+            }
             if (!phone) {
                 showNotification("Por favor, ingresa tu teléfono.");
+                return;
+            }
+            if (!/^\d{9}$/.test(phone)) {
+                showNotification("El teléfono debe contener exactamente 9 dígitos numéricos.");
                 return;
             }
             showStep(2);

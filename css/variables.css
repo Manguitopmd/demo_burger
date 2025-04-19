@@ -1,46 +1,58 @@
-/* Color Variables */
+/* variables.css - Colores y propiedades del proyecto Burger Bonanza */
+
+/* Colores clave del proyecto */
 :root {
-    /* Primary Colors */
-    --nav-background: #2a0808; /* Dark burgundy */
-    --mustard: #ffab00; /* Vibrant mustard yellow */
-    --beige: #1a1a1a; /* Dark charcoal for background */
+    /* Color principal (mostaza vibrante): usado en títulos, botones, y acentos */
+    --mustard: #ffab00;
+    /* Fondo de tarjetas y contenedores: usado en .card, modales, y secciones */
+    --dark-card: #262626;
+    /* Color de botones principales: usado en .btn, acciones primarias */
+    --button: #ffab00;
+    /* Color de acento (rojo vibrante): usado en categorías activas y elementos destacados */
+    --accent: #fcc400;
+    /* Texto principal: usado en textos blancos */
+    --text-primary: #ffffff;
+    /* Texto secundario: usado en descripciones y etiquetas */
+    --text-secondary: #a1a1aa;
+    /* Fondo general: usado en el body */
+    --beige: #1a1a1a;
+    /* Color de botones de WhatsApp y algunos indicadores */
+    --green: #22c55e;
+    /* Colores básicos */
     --white: #ffffff;
     --black: #000000;
-    --accent: #dc2626; /* Vibrant red for accents */
-    --green: #22c55e; /* Vibrant green for call button */
 
-    /* Secondary Colors */
-    --mustard-dark: #e69500; /* Darker mustard for hover */
-    --accent-dark: #b91c1c; /* Darker red for hover */
-    --green-dark: #16a34a; /* Darker green for hover */
-    --dark-card: #262626; /* Darker card background */
+    /* Colores secundarios para estados hover */
+    /* Hover del mostaza: usado en botones y elementos con --mustard */
+    --mustard-dark: #e69500;
+    /* Hover de botones principales: usado en .btn:hover */
+    --button-hover: #e69500;
+    /* Hover del acento: usado en elementos con --accent */
+    --accent-dark: #b91c1c;
+    /* Hover del verde: usado en botones de WhatsApp */
+    --green-dark: #16a34a;
 
-    /* Additional Colors for Customization */
-    --blue: #3b82f6; /* Vibrant blue */
-    --blue-light: #60a5fa; /* Lighter blue */
-    --blue-dark: #1d4ed8; /* Darker blue */
-    --purple: #8b5cf6; /* Vibrant purple */
-    --purple-light: #a78bfa; /* Lighter purple */
-    --purple-dark: #6d28d9; /* Darker purple */
-    --orange: #f97316; /* Vibrant orange */
-    --orange-light: #fb923c; /* Lighter orange */
-    --orange-dark: #c2410c; /* Darker orange */
-    --pink: #ec4899; /* Vibrant pink */
-    --pink-light: #f472b6; /* Lighter pink */
-    --pink-dark: #be185d; /* Darker pink */
-    --gray: #6b7280; /* Neutral gray */
-    --gray-light: #9ca3af; /* Lighter gray */
-    --gray-dark: #4b5563; /* Darker gray */
+    /* Color de la barra de navegación */
+    --nav-background: #2a0808; /* Fondo de la barra de navegación */
 
-    /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
+    /* Colores adicionales para personalización futura (no usados actualmente) */
+    --blue: #3b82f6; /* Azul vibrante */
+    --blue-light: #60a5fa; /* Azul claro */
+    --blue-dark: #1d4ed8; /* Azul oscuro */
+    --purple: #8b5cf6; /* Púrpura vibrante */
+    --purple-light: #a78bfa; /* Púrpura claro */
+    --purple-dark: #6d28d9; /* Púrpura oscuro */
+    --orange: #f97316; /* Naranja vibrante */
+    --orange-light: #fb923c; /* Naranja claro */
+    --orange-dark: #c2410c; /* Naranja oscuro */
+    --pink: #ec4899; /* Rosa vibrante */
+    --pink-light: #f472b6; /* Rosa claro */
+    --pink-dark: #be185d; /* Rosa oscuro */
+    --gray: #6b7280; /* Gris neutro */
+    --gray-light: #9ca3af; /* Gris claro */
+    --gray-dark: #4b5563; /* Gris oscuro */
 
-    /* Button Colors */
-    --button: #ffab00; /* Same as mustard */
-    --button-hover: #e69500; /* Same as mustard-dark */
-
-    /* Other Properties */
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --border: 1px solid #3f3f3f;
+    /* Propiedades no relacionadas con color */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para tarjetas y modales */
+    --border: 1px solid #3f3f3f; /* Borde para inputs y elementos */
 }

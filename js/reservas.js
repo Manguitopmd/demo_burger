@@ -3,7 +3,7 @@ function initReservas() {
         const section = content.querySelector('section');
         if (!section) {
             console.error('Reservas section not found');
-            showModal('🚫 Error', 'Error al cargar la sección de reservas. Por favor, intenta de nuevo.', '');
+            showModal('🚫 Error', 'No se pudo cargar la sección de reservas. Por favor, intenta de nuevo.', '', true);
             return;
         }
 
@@ -73,12 +73,14 @@ function initReservas() {
         });
 
         // Function to show modal
-        function showModal(title, message, details) {
+        function showModal(title, message, details, isError = false) {
             if (verifyModal && verifyTitle && verifyMessage && verifyDetails) {
                 verifyTitle.textContent = title;
                 verifyMessage.textContent = message;
                 verifyDetails.innerHTML = details;
                 verifyModal.classList.remove('hidden');
+                verifySubmit.classList.toggle('hidden', isError);
+                verifyCancel.textContent = isError ? 'Aceptar' : 'Cancelar';
                 setTimeout(() => verifyModal.classList.add('show'), 10);
             } else {
                 console.error('Modal elements not found');
@@ -89,25 +91,53 @@ function initReservas() {
         submitReserve.addEventListener('click', () => {
             const date = reserveDate.value;
             const time = reserveTime.value;
-            const persons = reservePersons.value.trim();
+            const persons = parseInt(reservePersons.value.trim());
             const name = reserveName.value.trim();
             const phone = reservePhone.value.trim();
             const notes = reserveNotes.value.trim();
 
             // Validations
             let errorMessage = '';
-            if (!date) errorMessage = '🚫 Por favor, selecciona una fecha.';
-            else if (!time) errorMessage = '🚫 Por favor, selecciona una hora.';
-            else if (!persons || persons < 1) errorMessage = '🚫 Por favor, ingresa un número válido de personas.';
-            else if (!name) errorMessage = '🚫 Por favor, ingresa tu nombre.';
-            else if (!phone) errorMessage = '🚫 Por favor, ingresa tu teléfono.';
+            let focusField = null;
+
+            if (!date) {
+                errorMessage = '🚫 Por favor, selecciona una fecha para tu reserva.';
+                focusField = reserveDate;
+            } else if (!time) {
+                errorMessage = '🚫 Por favor, selecciona una hora para tu reserva.';
+                focusField = reserveTime;
+            } else if (!persons || persons < 1 || isNaN(persons)) {
+                errorMessage = '🚫 Por favor, ingresa un número válido de personas (mínimo 1).';
+                focusField = reservePersons;
+            } else if (persons > 50) {
+                errorMessage = '🚫 El número de personas no puede exceder 50. Contáctanos para reservas grandes.';
+                focusField = reservePersons;
+            } else if (!name) {
+                errorMessage = '🚫 Por favor, ingresa tu nombre.';
+                focusField = reserveName;
+            } else if (name.length < 2) {
+                errorMessage = '🚫 El nombre debe tener al menos 2 caracteres.';
+                focusField = reserveName;
+            } else if (!/^[A-Za-z\s]+$/.test(name)) {
+                console.log(`Checking name validation: ${name}`);
+                errorMessage = '🚫 El nombre solo puede contener letras y espacios, sin números ni caracteres especiales.';
+                focusField = reserveName;
+            } else if (!phone) {
+                errorMessage = '🚫 Por favor, ingresa tu número de teléfono.';
+                focusField = reservePhone;
+            } else if (!/^\d{9}$/.test(phone)) {
+                errorMessage = '🚫 El teléfono debe contener exactamente 9 dígitos numéricos.';
+                focusField = reservePhone;
+            }
 
             if (errorMessage) {
-                verifySubmit.classList.add('hidden');
-                showModal('🚫 Error en la Reserva', errorMessage, '');
+                showModal('🚫 Error en la Reserva', errorMessage, '', true);
                 verifyCancel.addEventListener('click', () => {
                     verifyModal.classList.remove('show');
-                    setTimeout(() => verifyModal.classList.add('hidden'), 300);
+                    setTimeout(() => {
+                        verifyModal.classList.add('hidden');
+                        if (focusField) focusField.focus();
+                    }, 300);
                 }, { once: true });
                 return;
             }
@@ -131,8 +161,7 @@ function initReservas() {
             `;
 
             // Show verification modal with data
-            verifySubmit.classList.remove('hidden');
-            showModal('📅 Verifica tu Reserva', 'Revisa que los datos sean correctos:', details);
+            showModal('📅 Verifica tu Reserva', 'Por favor, revisa que los datos sean correctos:', details, false);
 
             // Handle Cancel button
             verifyCancel.addEventListener('click', () => {
@@ -148,17 +177,16 @@ function initReservas() {
 
                     // Format WhatsApp message
                     const message = 
-                      "Solicitud de Reserva\n\n" +
-                      "Nombre: " + name + "\n" +
-                      "Teléfono: " + phone + "\n" +
-                      "Fecha: " + formattedDate + "\n" +
-                      "Hora: " + time + "\n" +
-                      "Personas: " + persons + "\n" +
-                      (notes ? "Notas: " + notes + "\n" : '');
+                        "Solicitud de Reserva\n\n" +
+                        `Nombre: ${name}\n` +
+                        `Teléfono: ${phone}\n` +
+                        `Fecha: ${formattedDate}\n` +
+                        `Hora: ${time}\n` +
+                        `Personas: ${persons}\n` +
+                        (notes ? `Notas: ${notes}\n` : '');
 
                     const whatsappMessage = encodeURIComponent(message);
                     window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${whatsappMessage}`, '_blank');
-
 
                     // Clear form
                     reserveDate.value = '';
@@ -181,6 +209,6 @@ function initReservas() {
 
     } catch (error) {
         console.error('Error in initReservas:', error);
-        showModal('🚫 Error', 'Error al procesar la reserva. Por favor, intenta de nuevo.', '');
+        showModal('🚫 Error', 'Ocurrió un problema al procesar tu reserva. Por favor, intenta de nuevo.', '', true);
     }
 }
